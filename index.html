@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap" rel="stylesheet" defer>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6c74545ce9.js" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+    <link rel="icon" href="https://img.icons8.com/material/24/ffffff/resume-website.png">
+</head>
+
+<body>
+    <div id="nav">
+        <div id="title">Tulus Anugrah Ibrahim</div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="backtotop"><i class="fas fa-arrow-up"></i></div>
+
+    <div id="desc">
+        <div id="photo"></div>
+        <div id="name">
+            Hello there. My name is Tulus Anugrah Ibrahim. I'm currently become an
+            Information Technology student at President University. Nice to see you here!
+            <!-- <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis porro omnis aut aliquid ducimus
+                pariatur eveniet eius iusto tenetur consequuntur. Ex cumque libero modi, debitis beatae et laborum
+                similique ut.</span> -->
+            <button id="btngo">
+                <p id="btnword">Tap to see more <i class="fas fa-arrow-down"></i></p>
+            </button>
+        </div>
+    </div>
+
+    <div id="wrapperproject">
+        <div style="font-size: larger; font-weight: 500;">My works</div>
+        <div id="project">
+            <div id="card" class="card">
+                <i class="fas fa-gamepad fa-3x"></i>
+                <div id="projecttitle">Rock Paper Scissor</div>
+                <div id="projectdesc">Created with HTML, CSS, Javascript.
+                    <button id="btnvisit"><a href="https://tulusibrahim.github.io/rockpaperscissor">Tap to
+                            visit</a></button>
+                </div>
+            </div>
+            <div id="card" class="card">
+                <i class="fas fa-cloud-sun fa-3x"></i>
+                <div id="projecttitle">UdaraSekitar</div>
+                <div id="projectdesc">Created with HTML, CSS, Javascript, jquery, 3rd party API.
+                    <button id="btnvisit"><a href="https://udarasekitar.herokuapp.com">Tap to visit</a></button>
+                </div>
+            </div>
+            <div id="card" class="card">
+                <i class="fas fa-comments fa-3x"></i>
+                <div id="projecttitle">Chatingyu</div>
+                <div id="projectdesc">Created with HTML, CSS, Javascript, nodeJS, socketIO.
+                    <button id="btnvisit"><a href="https://chatingyu.herokuapp.com">Tap to visit</a></button>
+                </div>
+            </div>
+            <div id="card" class="card">
+                <i class="fas fa-clipboard fa-3x"></i>
+                <div id="projecttitle">Quizyu</div>
+                <div id="projectdesc">Created with HTML, CSS, Javascript, jquery, 3rd party API.
+                    <button id="btnvisit"><a href="https://quizyu.herokuapp.com">Tap to visit</a></button>
+                </div>
+            </div>
+            <div id="card" class="card">
+                <i class="fas fa-keyboard fa-3x"></i>
+                <div id="projecttitle">SeberapaCepat</div>
+                <div id="projectdesc">Created with HTML, CSS, Javascript, 3rd party API.
+                    <button id="btnvisit"><a href="https://tulusibrahim.github.io/typingSpeed">Tap to visit</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill">
+        <div style="font-size: larger; font-weight: 500;">My skill</div>
+        <div id="wrapperlogo">
+            <div class="logo"><i class="fab fa-html5 fa-5x"></i></div>
+            <div class="logo"><i class="fab fa-css3-alt fa-5x"></i></div>
+            <div class="logo"><i class="fab fa-js fa-5x"></i></div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <div style="font-size: larger; font-weight: 500;">Contact me at :</div>
+        <div id="logocontact">
+            <a href="http://www.instagram.com/tulusibrahim/">
+                <div><i class="fab fa-instagram fa-2x"></i></div>
+            </a>
+            <a href="http://www.github.com/tulusibrahim">
+                <div><i class="fab fa-github fa-2x"></i></div>
+            </a>
+            <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=tulusibrahim20@gmail.com">
+                <div><i class="far fa-envelope fa-2x"></i></div>
+            </a>
+            <a href="http://www.twitter.com/tulussibrahim">
+                <div><i class="fab fa-twitter fa-2x"></i></div>
+            </a>
+            <a href="https://www.linkedin.com/in/tulus-anugrah-ibrahim-a0b98918b">
+                <div><i class="fab fa-linkedin fa-2x"></i></div>
+            </a>
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>
