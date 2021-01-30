@@ -3,6 +3,7 @@ let option = document.getElementById('option')
 let overlay = document.getElementById('overlay')
 let nav = document.getElementById('nav')
 let backtotop = document.getElementById('backtotop')
+gsap.registerPlugin(ScrollTrigger);
 
 window.onscroll = function () {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -21,6 +22,17 @@ window.onscroll = function () {
 backtotop.addEventListener('click', function () {
     document.body.scrollTop = 0
     document.documentElement.scrollTop = 0
+})
+
+gsap.to(".toast", {
+    scrollTrigger: {
+        trigger: "#wrapperproject",
+        start: 'center 80%'
+    },
+    y: '12vh',
+    yoyo: true,
+    repeat: 1,
+    repeatDelay: 3
 })
 
 btngo.addEventListener('click', function () {
