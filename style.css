@@ -11,6 +11,7 @@
 .toastbody{
     height: 100%;
     width: 95%;
+    text-align: center;
     border-radius: 10px;
     font-size: .7em;
     display : flex; 
@@ -90,6 +91,7 @@
     }
     .toastbody{
         width: 60%;
+        font-size: medium;
     }
 }
 

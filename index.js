@@ -32,7 +32,7 @@ gsap.to(".toast", {
     y: '12vh',
     yoyo: true,
     repeat: 1,
-    repeatDelay: 3
+    repeatDelay: 300
 })
 
 btngo.addEventListener('click', function () {
