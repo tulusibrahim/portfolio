@@ -162,7 +162,7 @@
     color: white;
 }
 
-#card:hover .fas {
+#card:hover .fas, #card:hover .far {
     transform: scale(0.8);
 }
 
