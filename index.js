@@ -5,12 +5,11 @@ let nav = document.getElementById('nav')
 let backtotop = document.getElementById('backtotop')
 gsap.registerPlugin(ScrollTrigger);
 
-window.onload = function () {
-    let tl = gsap.timeline()
-    tl.from("#photo", { opacity: 0, y: -70, duration: .8 })
-        .from("#name", { opacity: 0, x: 50, })
-        .from("#btngo", { opacity: 0, y: 50 })
-}
+gsap.timeline()
+    .from("#photo", { opacity: 0, y: -70, duration: .8 })
+    .from("#name", { opacity: 0, x: 50 })
+    .from("#btngo", { opacity: 0, y: 50 })
+
 
 
 window.onscroll = function () {
@@ -59,7 +58,7 @@ gsap.from(".card", {
 gsap.from(".logo", {
     scrollTrigger: {
         trigger: '#wrapperlogo',
-        start: 'top 50%', //when the top of trigger hits 60% down from the top of viewport
+        start: 'top 70%', //when the top of trigger hits 60% down from the top of viewport
     },
     opacity: 0,
     stagger: .2,
@@ -69,7 +68,7 @@ gsap.from(".logo", {
 gsap.from("#logocontact a", {
     scrollTrigger: {
         trigger: "#contact",
-        start: 'top 100%'
+        start: 'center 100%'
     },
     stagger: {
         each: .2,
