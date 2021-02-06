@@ -69,8 +69,7 @@ gsap.from(".logo", {
 gsap.from("#logocontact a", {
     scrollTrigger: {
         trigger: "#contact",
-        start: 'top 100%',
-        markers: true
+        start: 'top 100%'
     },
     stagger: {
         each: .2,
@@ -88,8 +87,4 @@ btngo.addEventListener('click', function () {
     setTimeout(() => {
         window.location.href = '#wrapperproject'
     }, 1100);
-})
-
-window.addEventListener("mousemove", function (e) {
-    console.log(e.clientX, e.clientY)
 })
