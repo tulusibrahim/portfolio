@@ -5,6 +5,14 @@ let nav = document.getElementById('nav')
 let backtotop = document.getElementById('backtotop')
 gsap.registerPlugin(ScrollTrigger);
 
+window.onload = function () {
+    let tl = gsap.timeline()
+    tl.from("#photo", { opacity: 0, y: -70, duration: .8 })
+        .from("#name", { opacity: 0, x: 50, })
+        .from("#btngo", { opacity: 0, y: 50 })
+}
+
+
 window.onscroll = function () {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
         gsap.to("#nav", { y: -100, duration: .3, ease: 'power1.out' })
@@ -35,6 +43,44 @@ gsap.to(".toast", {
     repeatDelay: 3
 })
 
+gsap.from(".card", {
+    scrollTrigger: {
+        trigger: '#wrapperproject',
+        start: 'top 50%', //when the top of trigger hits 60% down from the top of viewport
+    },
+    opacity: 0,
+    stagger: {
+        each: .3,
+        from: "random"
+    },
+    duration: .3
+})
+
+gsap.from(".logo", {
+    scrollTrigger: {
+        trigger: '#wrapperlogo',
+        start: 'top 50%', //when the top of trigger hits 60% down from the top of viewport
+    },
+    opacity: 0,
+    stagger: .2,
+    duration: .5
+})
+
+gsap.from("#logocontact a", {
+    scrollTrigger: {
+        trigger: "#contact",
+        start: 'top 100%',
+        markers: true
+    },
+    stagger: {
+        each: .2,
+        from: "edges"
+    },
+    y: -50,
+    opacity: 0,
+    duration: .5
+})
+
 btngo.addEventListener('click', function () {
     let tl = gsap.timeline()
     tl.to('#btnword', { y: 100, duration: 1, ease: 'power4.in' })
@@ -42,4 +88,8 @@ btngo.addEventListener('click', function () {
     setTimeout(() => {
         window.location.href = '#wrapperproject'
     }, 1100);
+})
+
+window.addEventListener("mousemove", function (e) {
+    console.log(e.clientX, e.clientY)
 })
