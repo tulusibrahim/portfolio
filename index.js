@@ -8,6 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 function loading() {
     setTimeout(() => {
         gsap.timeline()
+            .from("#desc", { visibility: 'hidden' })
             .from("#photo", { opacity: 0, y: -70, duration: .8 })
             .from("#name", { opacity: 0, x: 50 })
             .from("#btngo", { opacity: 0, y: 50 })
