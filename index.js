@@ -6,13 +6,11 @@ let backtotop = document.getElementById('backtotop')
 gsap.registerPlugin(ScrollTrigger);
 
 function loading() {
-    setTimeout(() => {
-        gsap.timeline()
-            .to("#desc", { visibility: 'visible' })
-            .from("#photo", { opacity: 0, y: -70, duration: .8 })
-            .from("#name", { opacity: 0, x: 50 })
-            .from("#btngo", { opacity: 0, y: 50 })
-    }, 350);
+    gsap.timeline()
+        .to("#desc", { visibility: 'visible' })
+        .from("#photo", { opacity: 0, y: -70, duration: .8 })
+        .from("#name", { opacity: 0, x: 50 })
+        .from("#btngo", { opacity: 0, y: 50 })
 }
 
 
