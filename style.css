@@ -327,6 +327,8 @@
     position: fixed;
     transition: .3s;
     color: white;
+    overflow: hidden;
+    font-size: 1.2em;
 }
 
 #name span {

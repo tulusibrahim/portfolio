@@ -3,14 +3,29 @@ let option = document.getElementById('option')
 let overlay = document.getElementById('overlay')
 let nav = document.getElementById('nav')
 let backtotop = document.getElementById('backtotop')
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 function loading() {
+    // let tll = gsap.timeline({ repeat: -1 })
+    // let words = ["Tulus.", "A student.", "A Developer."]
+
+    // function wordss() {
+    //     words.forEach(res => {
+    //         let tl = gsap.timeline({ repeat: 1, yoyo: true })
+    //         tl.to("#name div span", { text: res, duration: 1 })
+    //         tll.add(tl)
+    //     })
+    // }
+
+
     gsap.timeline()
         .to("#desc", { visibility: 'visible' })
-        .from("#photo", { opacity: 0, y: -70, duration: .8 })
-        .from("#name", { opacity: 0, x: 50 })
-        .from("#btngo", { opacity: 0, y: 50 })
+        .to("#title", { text: "Welcome.", duration: 2 })
+        .from("#photo", { opacity: 0, y: -70, duration: .8 }, '+=.1')
+        .from("#name", { opacity: 0, x: 50, duration: .7 }, '+=.1')
+        .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=.1')
+        .to("#title", { text: "to the", duration: 1.5, delay: .3 })
+        .to("#title", { text: "Portfolio.", duration: 2 })
 }
 
 
