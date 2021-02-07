@@ -361,6 +361,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: column;
+    visibility: hidden;
 }
 
 @media screen and (min-width: 560px) {
