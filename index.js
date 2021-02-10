@@ -17,13 +17,11 @@ function loading() {
     //     })
     // }
 
-    let sting = "Hello. I'm Tulus Anugrah Ibrahim. A Final year Information Technology student. I really passionate aboutfront end development, and simple UI that bringbest experience."
-
     gsap.timeline()
         .to("#desc", { visibility: 'visible' })
         .to("#title", { text: "Welcome.", duration: 2 })
         .from("#photo", { opacity: 0, y: -70, duration: 1 }, '+=.1')
-        .from("#name div", { opacity: 0, scale: .5, duration: 1.2, ease: 'sine.out' }, '+=.1')
+        .from("#name div", { opacity: 0, x: 50, duration: 1.2, ease: 'sine.out' }, '+=.1')
         .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=.2')
         .to("#title", { text: "to the", duration: 1.5, delay: .3 })
         .to("#title", { text: "Portfolio.", duration: 2 })
