@@ -18,11 +18,11 @@ function loading() {
     // }
 
     gsap.timeline()
-        .to("#desc", { visibility: 'visible' })
+        .to("#desc", { visibility: 'visible', duration: .1 })
         .to("#title", { text: "Welcome.", duration: 2 })
-        .from("#photo", { opacity: 0, y: -70, duration: 1 }, '+=.1')
-        .from("#name div", { opacity: 0, x: 50, duration: 1.2, ease: 'sine.out' }, '+=.1')
-        .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=.2')
+        .from("#photo", { opacity: 0, y: -70, duration: 1 }, '-=.1')
+        .from("#name div", { opacity: 0, x: 50, duration: 1.2, ease: 'sine.out' }, '-=.8')
+        .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=1')
         .to("#title", { text: "to the", duration: 1.5, delay: .3 })
         .to("#title", { text: "Portfolio.", duration: 2 })
 }
@@ -30,9 +30,9 @@ function loading() {
 
 window.onscroll = function () {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        gsap.to("#nav", { y: -100, duration: .3, ease: 'power1.out' })
+        gsap.to("#nav", { opacity: 0, duration: .3, ease: 'power1.out' })
     } else {
-        gsap.to("#nav", { y: 0, duration: .3, ease: 'power1.out' })
+        gsap.to("#nav", { opacity: 1, duration: .3, ease: 'power1.out' })
     }
 
     if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
