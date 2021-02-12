@@ -19,17 +19,17 @@ function loading() {
 
     gsap.timeline()
         .to("#desc", { visibility: 'visible', duration: .1 })
-        .to("#title", { text: "Welcome.", duration: 2 })
+        .to("#title span", { text: "Welcome.", duration: 2 })
         .from("#photo", { opacity: 0, y: -70, duration: 1 }, '-=.1')
         .from("#name div", { opacity: 0, x: 50, duration: 1.2, ease: 'sine.out' }, '-=.8')
         .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=1')
-        .to("#title", { text: "to the", duration: 1.5, delay: .3 })
-        .to("#title", { text: "Portfolio.", duration: 2 })
+        .to("#title span", { text: "to the", duration: 1.5, delay: .3 })
+        .to("#title span", { text: "Portfolio.", duration: 2 })
 }
 
 
 window.onscroll = function () {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
         gsap.to("#nav", { opacity: 0, duration: .3, ease: 'power1.out' })
     } else {
         gsap.to("#nav", { opacity: 1, duration: .3, ease: 'power1.out' })
@@ -61,7 +61,7 @@ gsap.to(".toast", {
 gsap.from(".card", {
     scrollTrigger: {
         trigger: '#wrapperproject',
-        start: 'top 50%', //when the top of trigger hits 60% down from the top of viewport
+        start: 'top 50%', //when the top of trigger(#wrapperproject) hits 60% down from the top of viewport
     },
     opacity: 0,
     stagger: {
