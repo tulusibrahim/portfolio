@@ -137,6 +137,7 @@
     cursor: pointer;
     transition: .3s;
     z-index: 2;
+    opacity: 0;
 }
 
 .fa-keyboard,
