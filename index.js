@@ -6,16 +6,15 @@ let backtotop = document.getElementById('backtotop')
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 function loading() {
-    // let tll = gsap.timeline({ repeat: -1 })
-    // let words = ["Tulus.", "A student.", "A Developer."]
 
-    // function wordss() {
-    //     words.forEach(res => {
-    //         let tl = gsap.timeline({ repeat: 1, yoyo: true })
-    //         tl.to("#name div span", { text: res, duration: 1 })
-    //         tll.add(tl)
-    //     })
-    // }
+    function wordss() {
+        let tlwords = gsap.timeline({ repeat: -1 })
+
+        tlwords.to(".ganti2", { text: "Tulus Anugrah Ibrahim.", duration: 3, repeat: 1, yoyo: true })
+            .to(".ganti2", { text: "a Student.", duration: 2, repeat: 1, yoyo: true })
+            .to(".ganti2", { text: "a Developer.", duration: 2, repeat: 1, yoyo: true })
+        // .to(".ganti2", { text: "a Designer.", duration: 2, repeat: 1, yoyo: true })
+    }
 
     gsap.timeline()
         .to("#desc", { visibility: 'visible', duration: .1 })
@@ -23,6 +22,7 @@ function loading() {
         .from("#photo", { opacity: 0, y: -70, duration: 1 }, '-=.1')
         .from("#name div", { opacity: 0, x: 50, duration: 1.2, ease: 'sine.out' }, '-=.8')
         .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=1')
+        .to(".bigtitle", { opacity: 1, duration: 1, onComplete: wordss }, '-=.2')
         .to("#title span", { text: "to the", duration: 1.5, delay: .3 })
         .to("#title span", { text: "Portfolio.", duration: 2 })
 }
