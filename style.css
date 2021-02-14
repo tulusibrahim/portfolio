@@ -302,7 +302,7 @@
     color: #212529;
     overflow: hidden;
     cursor: pointer;
-    transition: .5s;
+    transition: .3s;
 }
 
 .ganti2{
@@ -444,6 +444,7 @@
         width: 50%;
         font-size: larger;
         text-align: left;
+        align-items: flex-start;
     }
 
     #name span {
