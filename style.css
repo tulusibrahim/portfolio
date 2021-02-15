@@ -161,6 +161,10 @@
     transition: .5s;
 }
 
+#card svg{
+    transform: scale(.8);
+}
+
 #btnvisit a {
     text-decoration: none;
     color: #495057;
@@ -199,6 +203,11 @@
 
 #card div {
     color: #ADB5BD;
+}
+
+#card:hover svg {
+    transform: scale(.65);
+    filter: drop-shadow(4px 4px 1px #6C757D);
 }
 
 #card:hover .fas, #card:hover .far {
