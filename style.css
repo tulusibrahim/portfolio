@@ -76,6 +76,15 @@
     cursor: pointer;
 }
 
+.logo>svg:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.logo>svg{
+    transition: .3s;
+}
+
 .logo>img {
     transition: .3s;
     transform: scale(.6);
@@ -145,7 +154,8 @@
 .fa-clipboard,
 .fa-comments,
 .fa-cloud-sun,
-.fa-gamepad {
+.fa-gamepad,
+#card svg {
     margin: 5px;
     color: #F8F9FA;
     transition: .5s;
