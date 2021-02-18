@@ -249,6 +249,7 @@
 @media screen and (max-width: 460px) {
     #card {
         font-size: small;
+        padding: 12px;
     }
 }
 
