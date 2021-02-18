@@ -249,7 +249,7 @@
 @media screen and (max-width: 460px) {
     #card {
         font-size: small;
-        padding: 12px;
+        padding: 10px;
     }
 }
 
@@ -262,9 +262,13 @@
     flex-wrap: wrap;
 }
 
+.myworks{
+    margin: 20px;
+}
+
 #wrapperproject {
     width: 100vw;
-    height: 100vh;
+    height: fit-content;
     /* padding-top: 20px;
     padding-bottom: 20px; */
     display: flex;
