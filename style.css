@@ -1,3 +1,47 @@
+.btndownload{
+    width: fit-content;
+    height: fit-content;
+    /* padding: 10px; */
+    border: none;
+    /* border: 2px #212529 solid; */
+    outline: none;
+    background-color: #E9ECEF;
+    color: #212529;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+    margin: 10px;
+    position: relative;
+}
+
+.btndownload:hover::after{
+    width: 100%;
+}
+
+.btndownload::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background-color: black;
+    transition: .5s;
+}
+
+.btndownload i{
+    animation: none;
+}
+
+.cvcon{
+    width: 100%;
+    height: 20vh;
+    display : flex; 
+    align-items : center; 
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
 .get-github:hover{
     cursor: pointer;
     transform: scale(1.5);
@@ -388,6 +432,17 @@
     cursor: pointer;
 }
 
+/* .hamburger{
+    display : flex; 
+    align-items : center; 
+    justify-content: center;
+    padding: 10px;
+} */
+
+#nav #link{
+    display: none;
+}
+
 #nav {
     width: 100%;
     height: 10vh;
@@ -473,6 +528,14 @@
 
     #name span {
         display: inline;
+    }
+
+    #nav #link{
+        display: block;
+    }
+
+    .cvcon{
+        display: none;
     }
 }
 

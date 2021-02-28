@@ -3,7 +3,24 @@ let option = document.getElementById('option')
 let overlay = document.getElementById('overlay')
 let nav = document.getElementById('nav')
 let backtotop = document.getElementById('backtotop')
+let btndownload = document.querySelector(".btndownload")
+let downloadicon = document.querySelector(".btndownload i")
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+
+
+
+btndownload.addEventListener('click', function (e) {
+    // e.preventDefault()
+
+    let tl = gsap.timeline()
+    tl.to(downloadicon, { y: -10, duration: .5 })
+        .to(downloadicon, { y: 50, duration: .7 })
+        .to(btndownload, { text: "Success!", duration: 1.3 }, '+=.3')
+        .to(btndownload, { text: "Thank you :)", duration: 1.3 }, '+=.3')
+        .to(btndownload, { disabled: true })
+})
+
 
 function loading() {
 
@@ -19,6 +36,7 @@ function loading() {
     gsap.timeline()
         .to("#desc", { visibility: 'visible', duration: .1 })
         .to("#title span", { text: "Welcome.", duration: 1.7 })
+        .from("#nav #link", { opacity: 0 })
         .from("#photo", { opacity: 0, y: -70, duration: 1 }, '-=.1')
         .from("#name div", { opacity: 0, x: 50, duration: 1.2, ease: 'sine.out' }, '-=.8')
         .from("#btngo", { opacity: 0, y: 50, duration: .7 }, '-=1')
