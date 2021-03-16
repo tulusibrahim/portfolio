@@ -1,3 +1,4 @@
+"use strict"
 let btngo = document.getElementById('btngo')
 let option = document.getElementById('option')
 let overlay = document.getElementById('overlay')
@@ -5,10 +6,46 @@ let nav = document.getElementById('nav')
 let backtotop = document.getElementById('backtotop')
 let btndownload = document.querySelector(".btndownload")
 let downloadicon = document.querySelector(".btndownload i")
+let btnform = document.querySelector(".btnform")
+let btnformtext = document.querySelector(".btnform p")
+let btnformicon = document.querySelector(".btnform i")
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx32DabYp3T4MYXjYMpaRX3GUpm5IO9Io9GYrZH3pvZ7zEd9-FPYvDXGmWHFV01k4qE1A/exec'
+const form = document.forms['submit-to-google-sheet']
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 
+function submitToForm() {
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            console.log('Success!', response)
+            let tl = gsap.timeline()
+            tl.set(btnformtext, { y: -100, text: 'Success! :)' })
+                .to(btnformtext, { y: 0 })
+                .to(btnformtext, { y: -100, delay: 3, duration: 1 })
+                .set(btnformtext, { y: 100, duration: .5 })
+                .set(btnformicon, { display: 'block', x: 0, y: 100 })
+                .to(btnformicon, { y: 0 })
+                .to(btnformtext, { y: 0, text: "Send Message", onComplete: () => btnform.disabled = false }, "-=.5")
 
+        })
+        .catch(error => {
+            let tll = gsap.timeline()
+            tll.set(btnformtext, { y: -100, text: 'Failed :( Click to try again.' })
+                .to(btnformtext, { y: 0, onComplete: () => btnform.disabled = false })
+        })
+}
+
+btnform.addEventListener("click", function (e) {
+    e.preventDefault()
+    btnform.disabled = true
+    let tl = gsap.timeline()
+    tl.to(btnformicon, { x: -5, duration: .5 })
+        .to(btnformicon, { x: 600, duration: 1, ease: 'bounce' })
+        .to(btnformtext, { x: -10, duration: 1 }, "-=.8")
+        .to(btnformtext, { x: 600, duration: 1, ease: 'bounce' }, "-=.8")
+        .to(btnformicon, { display: 'none' })
+        .to(btnformtext, { x: 0, text: 'Loading...', oncComplete: submitToForm }, "-=.5")
+})
 
 btndownload.addEventListener('click', function (e) {
     // e.preventDefault()
@@ -95,7 +132,7 @@ gsap.from(".logo", {
         start: 'top 70%', //when the top of trigger hits 60% down from the top of viewport
     },
     opacity: 0,
-    stagger: .2,
+    stagger: .3,
     duration: .5
 })
 
@@ -105,8 +142,7 @@ gsap.from("#logocontact a", {
         start: 'center 100%'
     },
     stagger: {
-        each: .2,
-        from: "edges"
+        each: .4
     },
     y: -50,
     opacity: 0,

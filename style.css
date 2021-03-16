@@ -1,3 +1,81 @@
+.wrapperform{
+    width: 100%;
+    height: 95%;
+    display : flex; 
+    align-items : center; 
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.form{
+    width: 80%;
+    height: 70%;
+    display : flex; 
+    align-items : center; 
+    justify-content: space-around;
+    background-color: #343A40;
+    padding: 15px;
+    border-radius: 5px;
+    /* border : 1px solid black; */
+}
+
+.form form{
+    height: 100%;
+    width: 100%;
+    display : flex; 
+    align-items : flex-start; 
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.form form input{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 95%;
+    height: 2.5rem;
+    background-color: #E9ECEF;
+}
+
+.message{
+    height: 3.5rem !important;
+}
+
+.btnform{
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px white solid;
+    /* border: none; */
+    outline: none;
+    background-color: #E9ECEF;
+    color: #343A40;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .4s;
+    display : flex; 
+    align-items : center; 
+    justify-content: space-evenly;
+}
+
+.form form button:hover{
+    background-color:#313d49;
+    color: white;
+}
+
+.footer{
+    width: 100vw;
+    height: 12vh;
+    display : flex; 
+    align-items : center; 
+    justify-content: center;
+}
+
+.footer span{
+    font-weight: 700;
+}
+
 .btndownload{
     width: fit-content;
     height: fit-content;
@@ -99,16 +177,16 @@
 #logocontact {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     flex-direction: row;
-    width: 100%;
-    height: 70%;
+    width: 80%;
+    height: 10%;
     transition: .3s;
 }
 
 #contact {
     width: 100vw;
-    height: 20vh;
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -536,6 +614,29 @@
 
     .cvcon{
         display: none;
+    }
+
+    .wrapperform{
+        flex-direction: row;
+    }
+
+    .form{
+        width: 50%;
+    }
+
+    #logocontact{
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+        height: 70%;
+        width: 20%;
+    }
+    .btnform{
+        justify-content: center;
+    }
+
+    #logocontact a{
+        width: 50%;
+        display : flex; align-items : center; justify-content: center;
     }
 }
 
