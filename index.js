@@ -18,6 +18,7 @@ function submitToForm() {
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
             console.log('Success!', response)
+            form.reset()
             let tl = gsap.timeline()
             tl.set(btnformtext, { y: -100, text: 'Success! :)' })
                 .to(btnformtext, { y: 0 })

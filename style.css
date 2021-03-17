@@ -16,6 +16,7 @@
     background-color: #343A40;
     padding: 15px;
     border-radius: 5px;
+    box-shadow: 0px 0px 20px grey;
     /* border : 1px solid black; */
 }
 
@@ -167,7 +168,6 @@
 #logocontact a div:hover {
     transform: translateY(-5px);
     cursor: pointer;
-    filter: drop-shadow( 0px 5px 1px white)
 }
 
 #logocontact>a {
