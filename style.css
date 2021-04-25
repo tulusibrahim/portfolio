@@ -626,6 +626,7 @@
 
     #logocontact{
         /* flex-direction: column; */
+        justify-content: center;
         flex-wrap: wrap;
         height: 70%;
         width: 20%;
