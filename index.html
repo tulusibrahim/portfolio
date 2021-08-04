@@ -21,6 +21,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/TextPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Portfolio</title>
     <link rel="icon" href="https://img.icons8.com/material/24/ffffff/resume-website.png">
@@ -39,7 +40,7 @@
     <div id="backtotop"><i class="fas fa-arrow-up"></i></div>
 
     <div id="desc">
-        <div id="photo"></div>
+        <div id="photo" onclick="party.confetti(this)"></div>
         <div id="name">
             <div>
                 <div class="bigtitle">
@@ -68,6 +69,16 @@
     <div id="wrapperproject">
         <div style="font-size: larger; font-weight: 500;" class="myworks">My works</div>
         <div id="project">
+            <div id="card" class="card">
+                <!-- <div class="get-github"><a href="https://github.com/tulusibrahim/rockpaperscissor"><i
+                            class="fab fa-github" style="color: #F8F9FA;"></i></a></div> -->
+                <i class="fas fa-newspaper fa-3x"></i>
+                <div id="projecttitle">Blog</div>
+                <div id="projectdesc">Created with React, SASS, Supabase as backend.
+                    <button id="btnvisit"><a href="https://write-tulusibrahim.vercel.app/">Tap to
+                            visit</a></button>
+                </div>
+            </div>
             <div id="card" class="card">
                 <div class="get-github"><a href="https://github.com/tulusibrahim/rockpaperscissor"><i
                             class="fab fa-github" style="color: #F8F9FA;"></i></a></div>
@@ -151,14 +162,18 @@
     <div id="skill">
         <div style="font-size: larger; font-weight: 500;">Skills & Tools</div>
         <div id="wrapperlogo">
-            <div class="logo"><img alt="tulus ibrahim skill"
-                    src="https://img.icons8.com/material-sharp/48/000000/html-5.png" /></div>
-            <div class="logo"><img alt="tulus ibrahim skill" src="https://img.icons8.com/material/48/000000/css3.png" />
+            <div class="logo" data-toggle="tooltip" title="HTML">
+                <img alt="tulus ibrahim skill" src="https://img.icons8.com/material-sharp/48/000000/html-5.png" />
             </div>
-            <div class="logo"><img alt="tulus ibrahim skill"
-                    src="https://img.icons8.com/ios-filled/48/000000/javascript.png" /></div>
-            <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
-                    viewBox="0 0 172 172" style=" fill:#000000;">
+            <div class="logo" data-toggle="tooltip" title="CSS">
+                <img alt="tulus ibrahim skill" src="https://img.icons8.com/material/48/000000/css3.png" />
+            </div>
+            <div class="logo" data-toggle="tooltip" title="Javascript">
+                <img alt="tulus ibrahim skill" src="https://img.icons8.com/ios-filled/48/000000/javascript.png" />
+            </div>
+            <div class="logo" data-toggle="tooltip" title="React JS, Native">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172"
+                    style=" fill:#000000;">
                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
                         font-family="none" font-weight="none" font-size="none" text-anchor="none"
@@ -177,9 +192,11 @@
                             <circle cx="24" cy="24" transform="scale(3.58333,3.58333)" r="4"></circle>
                         </g>
                     </g>
-                </svg></div>
-            <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48"
-                    viewBox="0 0 172 172" style=" fill:#000000;">
+                </svg>
+            </div>
+            <div class="logo" data-toggle="tooltip" title="SASS">
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48" height="48" viewBox="0 0 172 172"
+                    style=" fill:#000000;">
                     <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                         stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
                         font-family="none" font-weight="none" font-size="none" text-anchor="none"
@@ -191,11 +208,14 @@
                             </path>
                         </g>
                     </g>
-                </svg></div>
-            <div class="logo"><img alt="tulus ibrahim" src="https://img.icons8.com/ios-filled/50/000000/git.png" />
+                </svg>
             </div>
-            <div class="logo"><img alt="tulus ibrahim"
-                    src="https://img.icons8.com/ios-glyphs/48/000000/visual-studio.png" /></div>
+            <div class="logo" data-toggle="tooltip" title="Git">
+                <img alt="tulus ibrahim" src="https://img.icons8.com/ios-filled/50/000000/git.png" />
+            </div>
+            <div class="logo" data-toggle="tooltip" title="VSCode">
+                <img alt="tulus ibrahim" src="https://img.icons8.com/ios-glyphs/48/000000/visual-studio.png" />
+            </div>
         </div>
     </div>
 
@@ -228,9 +248,9 @@
                 <!-- <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=tulusibrahim20@gmail.com">
                     <div><i class="far fa-envelope fa-2x"></i></div>
                 </a> -->
-                <a href="http://www.twitter.com/tulussibrahim">
+                <!-- <a href="http://www.twitter.com/tulussibrahim">
                     <div><i class="fab fa-twitter fa-2x"></i></div>
-                </a>
+                </a> -->
                 <a href="https://www.linkedin.com/in/tulusibrahim">
                     <div><i class="fab fa-linkedin fa-2x"></i></div>
                 </a>

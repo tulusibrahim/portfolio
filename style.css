@@ -277,6 +277,7 @@
 .fa-comments,
 .fa-cloud-sun,
 .fa-gamepad,
+.fa-newspaper,
 #card svg {
     margin: 5px;
     color: #F8F9FA;
@@ -365,7 +366,7 @@
     flex-direction: column;
     text-align: center;
     transition: .5s;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 @media screen and (max-width: 460px) {

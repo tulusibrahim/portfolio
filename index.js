@@ -7,33 +7,60 @@ let backtotop = document.getElementById('backtotop')
 let btndownload = document.querySelector(".btndownload")
 let downloadicon = document.querySelector(".btndownload i")
 let btnform = document.querySelector(".btnform")
+let msgForm = document.getElementById('message')
 let btnformtext = document.querySelector(".btnform p")
 let btnformicon = document.querySelector(".btnform i")
 const scriptURL = 'https://script.google.com/macros/s/AKfycbx32DabYp3T4MYXjYMpaRX3GUpm5IO9Io9GYrZH3pvZ7zEd9-FPYvDXGmWHFV01k4qE1A/exec'
 const form = document.forms['submit-to-google-sheet']
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+party.confetti(runButton, {
+    count: party.variation.range(30, 40),
+});
 
 function submitToForm() {
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            console.log('Success!', response)
-            form.reset()
-            let tl = gsap.timeline()
-            tl.set(btnformtext, { y: -100, text: 'Success! :)' })
-                .to(btnformtext, { y: 0 })
-                .to(btnformtext, { y: -100, delay: 3, duration: 1 })
-                .set(btnformtext, { y: 100, duration: .5 })
-                .set(btnformicon, { display: 'block', x: 0, y: 100 })
-                .to(btnformicon, { y: 0 })
-                .to(btnformtext, { y: 0, text: "Send Message", onComplete: () => btnform.disabled = false }, "-=.5")
+    if (msgForm.value == '') {
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                console.log('Success!', response)
+                form.reset()
+                let tl = gsap.timeline()
+                tl.set(btnformtext, { y: -100, text: 'Why no message :(' })
+                    .to(btnformtext, { y: 0 })
+                    .to(btnformtext, { y: -100, delay: 3, duration: 1 })
+                    .set(btnformtext, { y: 100, duration: .5 })
+                    .set(btnformicon, { display: 'block', x: 0, y: 100 })
+                    .to(btnformicon, { y: 0 })
+                    .to(btnformtext, { y: 0, text: "Send Message", onComplete: () => btnform.disabled = false }, "-=.5")
 
-        })
-        .catch(error => {
-            let tll = gsap.timeline()
-            tll.set(btnformtext, { y: -100, text: 'Failed :( Click to try again.' })
-                .to(btnformtext, { y: 0, onComplete: () => btnform.disabled = false })
-        })
+            })
+            .catch(error => {
+                let tll = gsap.timeline()
+                tll.set(btnformtext, { y: -100, text: 'Failed :( Click to try again.' })
+                    .to(btnformtext, { y: 0, onComplete: () => btnform.disabled = false })
+            })
+    }
+    else {
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                console.log('Success!', response)
+                form.reset()
+                let tl = gsap.timeline()
+                tl.set(btnformtext, { y: -100, text: 'Success! :)' })
+                    .to(btnformtext, { y: 0 })
+                    .to(btnformtext, { y: -100, delay: 3, duration: 1 })
+                    .set(btnformtext, { y: 100, duration: .5 })
+                    .set(btnformicon, { display: 'block', x: 0, y: 100 })
+                    .to(btnformicon, { y: 0 })
+                    .to(btnformtext, { y: 0, text: "Send Message", onComplete: () => btnform.disabled = false }, "-=.5")
+
+            })
+            .catch(error => {
+                let tll = gsap.timeline()
+                tll.set(btnformtext, { y: -100, text: 'Failed :( Click to try again.' })
+                    .to(btnformtext, { y: 0, onComplete: () => btnform.disabled = false })
+            })
+    }
 }
 
 btnform.addEventListener("click", function (e) {
@@ -122,7 +149,7 @@ gsap.from(".card", {
     opacity: 0,
     stagger: {
         each: .3,
-        from: "random"
+        // from: "random"
     },
     duration: .3
 })
