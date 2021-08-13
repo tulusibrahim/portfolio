@@ -14,6 +14,20 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbx32DabYp3T4MYXjYMpaR
 const form = document.forms['submit-to-google-sheet']
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+window.onscroll = function () {
+    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+        gsap.to("#nav", { opacity: 0, duration: .3, ease: 'power1.out' })
+    } else {
+        gsap.to("#nav", { opacity: 1, duration: .3, ease: 'power1.out' })
+    }
+
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        backtotop.style.opacity = '1'
+    } else {
+        backtotop.style.opacity = '0'
+    }
+}
+
 party.confetti(runButton, {
     count: party.variation.range(30, 40),
 });
@@ -108,21 +122,6 @@ function loading() {
         .to(".bigtitle", { opacity: 1, duration: 1, onComplete: wordss }, '-=.2')
         .to("#title span", { text: "to the", duration: 1.5, delay: .3 })
         .to("#title span", { text: "Portfolio.", duration: 2 })
-}
-
-
-window.onscroll = function () {
-    if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-        gsap.to("#nav", { opacity: 0, duration: .3, ease: 'power1.out' })
-    } else {
-        gsap.to("#nav", { opacity: 1, duration: .3, ease: 'power1.out' })
-    }
-
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
-        backtotop.style.opacity = '1'
-    } else {
-        backtotop.style.opacity = '0'
-    }
 }
 
 backtotop.addEventListener('click', function () {
