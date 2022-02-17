@@ -262,7 +262,7 @@ const Body = () => {
             <Flex w="50%" h="12vh" justify={'space-between'} align={'center'} direction='column' >
                 <Flex w="100%" h="100%" justify={'space-between'} >
                     <a href='https://instagram.com/tulusibrahim/' target={'_blank'}>
-                        <FiInstagram size={32} />
+                        <FiInstagram size={31} />
                     </a>
                     <a href='https://linkedin.com/in/tulusibrahim/' target={'_blank'}>
                         <IoLogoLinkedin size={32} />
