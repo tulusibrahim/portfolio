@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { Box, Flex, Center, Image } from '@chakra-ui/react';
 import './App.css';
+import Body from './components/body';
+import bg from './images/bg.jpg';
+
+const Footer = () => {
+  return (
+    <Box>
+      Footer
+    </Box>
+  )
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Center w="100%" fontFamily="poppins" d="flex" flexDirection="column" fontFamily={'Playfair Display'} bgImage={bg} bgAttachment='fixed'>
+      {/* <Navbar /> */}
+      <Body />
+      {/* <Footer /> */}
+    </Center>
   );
 }
 
