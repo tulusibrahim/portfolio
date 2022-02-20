@@ -54,7 +54,7 @@ const Body = () => {
 
         let articleTitle = gsap.timeline()
         articleTitle
-            .from('.articleTitle', { y: -50, stagger: 0.05 })
+            .from('.articleTitle', { y: -100, stagger: 0.05 })
 
         //animasi di project section
         let tlProjectBox = gsap.timeline()
@@ -130,7 +130,7 @@ const Body = () => {
     return (
         <Flex w="100%" h="fit-content" align="center" justify='space-evenly' direction="column">
             <Flex w="100%" h="100vh" justify={'space-evenly'} align={'center'} direction={['column', 'column', 'row', 'row']} >
-                <Flex w={'40%'} h={'100%'} justify={'center'} align={'center'} position='relative' >
+                <Flex w={['100%', '100%', '40%', '40%']} h={'100%'} justify={'center'} align={'center'} position='relative' >
                     <Box bg={'white'} boxShadow='1px 2px 30px -25px black' w='0px' h={'350px'} position='absolute' className='layerimgfirst'></Box>
                     <Image src={guyPic} boxSize="400px" objectFit="cover" borderRadius="full" className='imagefirst' onClick={() => setSelected(!selected)} />
                 </Flex>
@@ -160,9 +160,9 @@ const Body = () => {
                     {/* </animated.div> */}
                 </Flex>
             </Flex>
-            <Flex w="100%" h="90vh" justify={'center'} align={'center'}>
+            <Flex w="100%" h={["60vh", "60vh", "90vh", "90vh"]} justify={'center'} align={'center'}>
                 <Flex w={["85%", "85%", "40%", "40%"]} h="50%" align="left" justify="space-evenly" direction="column" textAlign="left" className='containerscd'>
-                    <Flex fontSize="32px" overflow={'hidden'} fontWeight="600" letterSpacing="1px">
+                    <Flex fontSize={["28px", "32px", "32px", "32px"]} overflow={'hidden'} fontWeight="600" letterSpacing="1px">
                         {
                             ('Experience').split('').map(i => (
                                 <span className='expTitle'>{i}</span>
@@ -171,13 +171,13 @@ const Body = () => {
                         }
                     </Flex>
                     <Flex h={'40%'} justify={'space-evenly'} direction={'column'} fontFamily={'Merriweather'}>
-                        <Flex fontWeight={500} fontSize="24px">
+                        <Flex fontWeight={500} fontSize={["20px", "20px", "24px", "24px"]}>
                             Asmaraku (March - July 2021)
                         </Flex>
-                        <Flex fontWeight={500} fontSize="24px">
+                        <Flex fontWeight={500} fontSize={["20px", "20px", "24px", "24px"]}>
                             Software Developer Intern
                         </Flex>
-                        <Flex fontWeight={500} fontSize="20px">
+                        <Flex fontWeight={500} fontSize={["18px", "18px", "20px", "20px"]}>
                             Key learning: React native, shopify, push notification
                         </Flex>
                     </Flex>
@@ -187,8 +187,8 @@ const Body = () => {
                     <Image src={guyWork} boxSize="350px" objectFit="cover" borderRadius="full" className='imgscd' />
                 </Flex>
             </Flex>
-            <Flex w="90%" h="120vh" justify={'space-evenly'} align={'center'} direction='column' overflow={'hidden'} className='projectboxwrapper'>
-                <Flex fontSize="32px" fontWeight="600" letterSpacing="1px" overflow={'hidden'}>
+            <Flex w="90%" h={["80vh", "80vh", "120vh", "120vh"]} justify={'space-evenly'} align={'center'} direction='column' overflow={'hidden'} className='projectboxwrapper'>
+                <Flex fontSize={["28px", "32px", "32px", "32px"]} fontWeight="600" letterSpacing="1px" overflow={'hidden'}>
                     {
                         ' Selected Works'.split('').map(i => (
                             i == ' ' ?
@@ -202,7 +202,7 @@ const Body = () => {
                 <Flex border='none' direction={'column'} >
                     {
                         list.map(item => (
-                            <Flex className={`projectText ${item.title}`} paddingY={'25px'} fontSize={28} zIndex={2} whiteSpace={'nowrap'} w={'100%'} cursor='pointer' onMouseMove={(e) => showModal(e, item)} onMouseLeave={() => setDisplayModal(false)} onClick={() => window.location.href = item.url}>
+                            <Flex className={`projectText ${item.title}`} paddingY={'25px'} fontSize={[24, 24, 28, 28]} zIndex={2} whiteSpace={'nowrap'} w={'100%'} cursor='pointer' onMouseMove={(e) => showModal(e, item)} onMouseLeave={() => setDisplayModal(false)} onClick={() => window.location.href = item.url}>
                                 <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
                                 <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
                                 <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
@@ -218,8 +218,8 @@ const Body = () => {
                     }
                 </Flex>
             </Flex>
-            <Flex w="90%" h="60vh" justify={'space-between'} align={'center'} direction='column' >
-                <Flex h={'20%'} w='100%' justify={'flex-start'} align={'center'} fontSize="32px" fontWeight={600} letterSpacing='1px' overflow={'hidden'} >
+            <Flex w="90%" h={["90vh", "90vh", "60vh", "60vh"]} justify={'space-between'} align={'center'} direction='column' >
+                <Flex h={'10%'} w='100%' justify={'flex-start'} align={'center'} fontSize={["28px", "32px", "32px", "32px"]} fontWeight={600} letterSpacing='1px' overflow={'hidden'} >
                     {
                         'Recent Articles'.split('').map(i => (
                             <Letter letter={i} classname='articleTitle' />
@@ -238,8 +238,8 @@ const Body = () => {
                 </Flex>
             </Flex>
             <Flex w="90%" h="100vh" justify={'space-between'} align={'center'} >
-                <Flex w="60%" h="60%" align="left" justify="space-between" direction="column" textAlign="left">
-                    <Flex fontSize="32px" fontWeight="600" letterSpacing="1px" h={'10%'} >
+                <Flex w={["100%", "100%", "60%", "60%"]} h="60%" align="left" justify="space-between" direction="column" textAlign="left">
+                    <Flex fontSize={["28px", "28px", "32px", "32px"]} fontWeight="600" letterSpacing="1px" h={'10%'} wordBreak='break-word' w={'100%'}>
                         {
                             ' Skillset & Frequent Tools'.split('').map(i => (
                                 <Letter letter={i} classname='skilltitle' />
@@ -254,7 +254,7 @@ const Body = () => {
                         }
                     </Flex>
                 </Flex>
-                <Flex w={'40%'} h={'60%'} justify={'center'} align={'center'} overflow='hidden'>
+                <Flex w={'40%'} h={'60%'} justify={'center'} align={'center'} overflow='hidden' display={['none', 'none', 'flex', 'flex']}>
                     <Image src={girlRush} boxSize="350px" objectFit="cover" borderRadius="full" className='skillimage' />
                 </Flex>
             </Flex>

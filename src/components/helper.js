@@ -93,7 +93,7 @@ export const list = [{
 export const MediumCard = ({ item }) => {
     let time = new Date(item.pubDate)
     return (
-        <Flex w={'22%'} h='90%' className='articlebox' _hover={{ transform: 'scale(1.1)' }} boxShadow='1px 2px 30px -10px gray' transition={'.25s'} position={'relative'} direction='column' padding={'10px'} borderRadius='10px' bg='whitesmoke' color={'black'} fontFamily={'Merriweather'}>
+        <Flex w={['45%', '45%', '22%', '22%']} h={['40%', '40%', '90%', '90%']} className='articlebox' _hover={{ transform: 'scale(1.1)' }} boxShadow='1px 2px 30px -10px gray' transition={'.25s'} position={'relative'} direction='column' padding={'10px'} borderRadius='10px' bg='whitesmoke' color={'black'} fontFamily={'Merriweather'}>
             <Image src={item.thumbnail} h='fit-content' borderRadius={'5px'} marginBottom='10px' />
             <a href={item.link} target='_blank' style={{ cursor: 'pointer' }}>
                 <Flex fontSize={'16px'}>{item.title}</Flex>
