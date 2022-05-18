@@ -1,23 +1,17 @@
-import { useColorMode, Flex, Box, Image, useToast, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Icon, Switch } from '@chakra-ui/react';
-import { list, skillsList, SkillBox, MediumCard, Letter } from './helper';
-import { motion, AnimatePresence } from "framer-motion"
-import { useEffect, useRef, useState } from 'react';
-import { useSpring, animated, Parallax, ParallaxLayer, useTrail, a } from 'react-spring'
+import { useColorMode, Flex, Box, useToast, Icon } from '@chakra-ui/react';
+import { list, MediumCard } from './helper';
+import { useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FiInstagram } from 'react-icons/fi'
 import { IoLogoLinkedin } from 'react-icons/io'
-import { FaMedium, BsGithub, GiHamburgerMenu, AiFillHtml5, DiCss3Full, SiJavascript, DiGit, FaReact, SiGmail, SiVisualstudiocode, BsFillMoonFill, BsSunFill } from 'react-icons/all'
-// import {  } from 'react-icons/bs'
+import { FaMedium, BsGithub, GiHamburgerMenu, SiGmail, BsFillMoonFill, BsSunFill } from 'react-icons/all'
 import { CentralTheme } from '../theme';
 
 const Body = () => {
     const [navbarSelect, setNavbarSelect] = useState('home')
     const [sideMenu, setSideMenu] = useState(false)
     const [mediumPost, setMediumPost] = useState([]);
-    const [modalData, setModalData] = useState({})
-    const [displayModal, setDisplayModal] = useState(false);
-    const { elementColor, bgColor, textColor, borderColor, shadowColor } = CentralTheme()
+    const { bgColor, borderColor, shadowColor } = CentralTheme()
     const { colorMode, toggleColorMode } = useColorMode()
     const toast = useToast()
     const bodyWidth = '50%'
@@ -49,10 +43,10 @@ const Body = () => {
         return (
             <Flex w={['100%', '100%', '48%']} minH={'100px'} borderRadius={'10px'} _hover={{ boxShadow: `0px 0px 15px 0px ${shadowColor}` }} transition='.3s' border={`1px ${borderColor} solid`} my={'10px'} p='10px' direction={'column'} fontFamily={'Merriweather'}>
                 <Flex direction={'row'} align='flex-start' justify={'space-between'}>
-                    <a target={'_blank'} href={item.url}>
+                    <a target={'_blank'} href={item.url} rel='noreferrer'>
                         <Flex fontSize={'20px'} mb='5px'>{item.title}</Flex>
                     </a>
-                    <a target={'_blank'} href={item.github}>
+                    <a target={'_blank'} href={item.github} rel='noreferrer'>
                         <BsGithub />
                     </a>
                 </Flex>
@@ -65,21 +59,21 @@ const Body = () => {
         return (
             <Flex h={'10vh'} w={['95%', '85%', bodyWidth]} align={'center'} justify='flex-end'>
                 <Flex w={'100%'} h={'100%'} align={'center'} justify='flex-end' display={['none', 'none', 'flex']}>
-                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'home' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('home')}>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode === 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'home' ? colorMode === 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('home')}>
                         Home
                     </Flex>
-                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'experience' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('experience')}>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode === 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'experience' ? colorMode === 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('experience')}>
                         Experience
                     </Flex>
-                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'projects' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('projects')}>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode === 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'projects' ? colorMode === 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('projects')}>
                         Project
                     </Flex>
-                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'articles' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('articles')}>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode === 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'articles' ? colorMode === 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('articles')}>
                         Blog
                     </Flex>
                 </Flex>
                 {
-                    colorMode == 'dark' ?
+                    colorMode === 'dark' ?
                         <Icon as={BsFillMoonFill} onClick={toggleColorMode} ml='10px' cursor={'pointer'} transition='1s' />
                         :
                         <Icon as={BsSunFill} onClick={toggleColorMode} ml='10px' cursor={'pointer'} />
@@ -139,6 +133,11 @@ const Body = () => {
                             <Flex mb={'5px'}>
                                 • The project involves react native, expo, firebase cloud messaging (FCM) for push notification,
                                 consuming the graphql API and manage to upload the apps to google play store.
+                            </Flex>
+                            <Flex textDecoration={'underline'}>
+                                <a href="http://play.google.com/store/apps/details?id=com.outerBloom1Expo" target="_blank" rel="noopener noreferrer">
+                                    Link Google Play
+                                </a>
                             </Flex>
                         </Flex>
                     </Flex>
@@ -226,13 +225,13 @@ const Body = () => {
                         {/* <a href='https://github.com/tulusibrahim/' target={'_blank'}> */}
                         <SiGmail size={24} onClick={copyEmail} cursor='pointer' />
                         {/* </a> */}
-                        <a href='https://linkedin.com/in/tulusibrahim/' target={'_blank'}>
+                        <a href='https://linkedin.com/in/tulusibrahim/' target={'_blank'} rel='noreferrer'>
                             <IoLogoLinkedin size={24} />
                         </a>
-                        <a href='https://github.com/tulusibrahim/' target={'_blank'}>
+                        <a href='https://github.com/tulusibrahim/' target={'_blank'} rel='noreferrer'>
                             <BsGithub size={24} />
                         </a>
-                        <a href='https://medium.com/@tulusibrahim/' target={'_blank'}>
+                        <a href='https://medium.com/@tulusibrahim/' target={'_blank'} rel='noreferrer'>
                             <FaMedium size={24} />
                         </a>
                         {/* <a href='https://instagram.com/tulusibrahim/' target={'_blank'}>
