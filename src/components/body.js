@@ -43,100 +43,7 @@ const Body = () => {
 
     useEffect(() => {
         getMediumPost()
-        //animasi di skill section 
-        let skilltl = gsap.timeline()
-        skilltl
-            .from('.skilltitle', { x: 20, opacity: 0, stagger: { each: .05 } })
-            .from('.skillboxlayer', { opacity: 0, stagger: { each: .2 } }, '-=1')
-            .from('.skillimage', { x: 50, opacity: 0, },)
-
-        ScrollTrigger.create({
-            trigger: '.skillwrapper',
-            animation: skilltl,
-            start: "top 65%",
-            end: "center 25%",
-            // markers: true,
-        })
-
-        //animasi di article section
-        // let articletl = gsap.timeline()
-        // articletl
-        //     .from('.articlebox', { opacity: 0, duration: 1 })
-
-        let articleTitle = gsap.timeline()
-        articleTitle
-            .from('.articleTitle', { y: -100, stagger: 0.05 })
-
-        //animasi di project section
-        let tlProjectBox = gsap.timeline()
-        // gsap.set('.projectboxtitle', { visibility: 'hidden' })
-        // gsap.set('.projectboxdesc', { visibility: 'hidden' })
-        // gsap.set('.projectboxlayer', { left: 0 })
-        gsap.from('.projectsTitle', { y: 50, stagger: .09 })
-        // .from('.Typing.Speed.Test', { opacity: 0 })
-        // .from('.Room.landing.page', { opacity: 0 })
-        // .from('.Country.REST.API', { opacity: 0 })
-        // .from('.Quiz.App', { opacity: 0 })
-        // .from('.Rock.Paper.Scissor', { opacity: 0 })
-        tlProjectBox
-            .to('.Blogging.Platform', { x: '30vw', yoyo: true, duration: 1 }, '-=1')
-            .to('.Typing.Speed.Test', { x: '50vw', yoyo: true, duration: 1 }, '-=1')
-            .to('.Room.landing.page', { x: '20vw', yoyo: true, duration: 1 }, '-=1')
-            .to('.Country.REST.API', { x: '60vw', yoyo: true, duration: 1 }, '-=1')
-            .to('.Quiz.App', { x: '40vw', yoyo: true, duration: 1 }, '-=1')
-            .to('.Rock.Paper.Scissor', { x: '60vw', yoyo: true, duration: 1 }, '-=1',)
-
-        ScrollTrigger.create({
-            trigger: '.projectboxwrapper',
-            animation: tlProjectBox,
-            start: "top center",
-            end: "bottom top",
-            scrub: true
-        })
-
-
-        //animasi di experience section
-        // let tlImgscd = gsap.timeline()
-        // gsap.set('.containerscd', { opacity: 0 })
-        // gsap.set('.imgscd', { opacity: 0 })
-        // tlImgscd
-        //     .to('.layerimgscd', { left: 0 })
-        //     .to('.layerimgscd', { width: '100%', duration: .6 })
-        //     .to('.layerimgscd', { width: 0, left: '100%' })
-        //     .to('.containerscd', { opacity: 1 })
-        //     .to('.imgscd', { opacity: 1 }, '-=.4')
-
-        // ScrollTrigger.create({
-        //     trigger: '.containerscd',
-        //     animation: tlImgscd,
-        //     start: "top 60%",
-        //     end: "top center",
-        // })
-
-        //animasi di first section
-        //animasi kata2
-        let tl = gsap.timeline()
-        tl
-            .from('.hi', { opacity: 0, duration: 1, y: 100 }, '+=.3s')
-            .from('.letter', { y: 100, opacity: 0, stagger: .04, duration: 1 }, '-=.8s')
-            .from('.welcome', { opacity: 0, duration: 1, y: 100 }, '-=.8s')
-
-        //animasi gambar
-        // let tlImg = gsap.timeline()
-        // tlImg
-        //     .to('.imagefirst', { opacity: 0 })
-        //     .to('.layerimgfirst', { left: 0 })
-        //     .to('.layerimgfirst', { width: '100%', duration: .5 })
-        //     .to('.layerimgfirst', { width: 0, left: '100%' })
-        //     .to('.imagefirst', { opacity: 1 })
-        //     .to('.layerimgfirst', { border: '1px black solid' })
     }, []);
-
-    const showModal = (e, item) => {
-        gsap.to('.modal', { css: { left: e.pageX, top: e.pageY } })
-        setModalData(item)
-        setDisplayModal(true)
-    }
 
     const ProjectCard = ({ item }) => {
         return (
@@ -190,7 +97,7 @@ const Body = () => {
                 <Flex w={["100%", "100%", "100%"]} h={["60%", "60%", "50%"]} justify="space-evenly" align={'flex-start'} wrap={'wrap'} direction="row" fontWeight="900" letterSpacing="1px" className='maintitle'  >
                     <Flex w='100%' h='70%' direction={'column'} justify={'flex-start'} mt={'20px'}>
                         <Flex>
-                            <Box className='hi' letterSpacing={1.5} w='100%' display={'flex'} justifyContent={['flex-start', 'flex-start', 'flex-start']} fontSize={["24px", "24px", "40px"]}>Hi! I'm Tulus Anugrah Ibrahim 👋</Box>
+                            <Box letterSpacing={1.5} w='100%' display={'flex'} justifyContent={['flex-start', 'flex-start', 'flex-start']} fontSize={["24px", "24px", "40px"]}>Hi! I'm Tulus Anugrah Ibrahim 👋</Box>
                         </Flex>
                         <Flex fontWeight={'normal'} fontFamily='Merriweather'>
                             I'm a Frontend Developer based on Indonesia. Currently learning React and Redux.
