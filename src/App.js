@@ -1,7 +1,8 @@
-import { Box, Flex, Center, Image } from '@chakra-ui/react';
+import { Box, Flex, Center, Image, useColorMode } from '@chakra-ui/react';
 import './App.css';
 import Body from './components/body';
 import bg from './images/bg.jpg';
+import { CentralTheme } from './theme';
 
 const Footer = () => {
   return (
@@ -12,8 +13,12 @@ const Footer = () => {
 }
 
 function App() {
+  const { elementColor, bgColor, textColor } = CentralTheme()
+
   return (
-    <Center w="100%" fontFamily="poppins" d="flex" flexDirection="column" fontFamily={'Playfair Display'} bgImage={bg} bgAttachment='fixed'>
+    // fontFamily="poppins"
+    //bgImage={bg}
+    <Center w="100%" d="flex" flexDirection="column" fontFamily={'Playfair Display'} bgAttachment='fixed' bg={bgColor} color={textColor} transition='.3s'>
       {/* <Navbar /> */}
       <Body />
       {/* <Footer /> */}

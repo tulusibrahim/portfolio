@@ -1,8 +1,4 @@
-import { Box, Flex, Center, Image, Icon } from '@chakra-ui/react';
-import guyPic from '../images/cool-guy.png'
-import guyWork from '../images/man-work.png'
-import girlPaint from '../images/girl-paint.png'
-import girlRush from '../images/rushing.png'
+import { useColorMode, Flex, Box, Image, useToast, Accordion, AccordionItem, AccordionButton, AccordionPanel, AccordionIcon, Icon, Switch } from '@chakra-ui/react';
 import { list, skillsList, SkillBox, MediumCard, Letter } from './helper';
 import { motion, AnimatePresence } from "framer-motion"
 import { useEffect, useRef, useState } from 'react';
@@ -11,16 +7,20 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FiInstagram } from 'react-icons/fi'
 import { IoLogoLinkedin } from 'react-icons/io'
-import { FaMedium } from 'react-icons/fa'
-import { BsGithub } from 'react-icons/bs'
+import { FaMedium, BsGithub, GiHamburgerMenu, AiFillHtml5, DiCss3Full, SiJavascript, DiGit, FaReact, SiGmail, SiVisualstudiocode, BsFillMoonFill, BsSunFill } from 'react-icons/all'
+// import {  } from 'react-icons/bs'
+import { CentralTheme } from '../theme';
 
 const Body = () => {
-    const [selected, setSelected] = useState(true);
+    const [navbarSelect, setNavbarSelect] = useState('home')
+    const [sideMenu, setSideMenu] = useState(false)
     const [mediumPost, setMediumPost] = useState([]);
     const [modalData, setModalData] = useState({})
     const [displayModal, setDisplayModal] = useState(false);
-    const wordFirst = ("Tulus Anugrah Ibrahim,").split(' ')
-    let geser = 0
+    const { elementColor, bgColor, textColor, borderColor, shadowColor } = CentralTheme()
+    const { colorMode, toggleColorMode } = useColorMode()
+    const toast = useToast()
+    const bodyWidth = '50%'
     gsap.registerPlugin(ScrollTrigger)
 
     const getMediumPost = async (second) => {
@@ -29,6 +29,17 @@ const Body = () => {
         console.log(res)
         setMediumPost(res.items)
     };
+
+    const copyEmail = (second) => {
+        navigator.clipboard.writeText('tulusibrahim20@gmail.com');
+        toast({
+            title: 'Email copied.',
+            position: 'bottom-left',
+            // description: "Email copied.",
+            status: 'success',
+            isClosable: true,
+        })
+    }
 
     useEffect(() => {
         getMediumPost()
@@ -85,40 +96,40 @@ const Body = () => {
 
 
         //animasi di experience section
-        let tlImgscd = gsap.timeline()
-        gsap.set('.containerscd', { opacity: 0 })
-        gsap.set('.imgscd', { opacity: 0 })
-        tlImgscd
-            .to('.layerimgscd', { left: 0 })
-            .to('.layerimgscd', { width: '100%', duration: .6 })
-            .to('.layerimgscd', { width: 0, left: '100%' })
-            .to('.containerscd', { opacity: 1 })
-            .to('.imgscd', { opacity: 1 }, '-=.4')
+        // let tlImgscd = gsap.timeline()
+        // gsap.set('.containerscd', { opacity: 0 })
+        // gsap.set('.imgscd', { opacity: 0 })
+        // tlImgscd
+        //     .to('.layerimgscd', { left: 0 })
+        //     .to('.layerimgscd', { width: '100%', duration: .6 })
+        //     .to('.layerimgscd', { width: 0, left: '100%' })
+        //     .to('.containerscd', { opacity: 1 })
+        //     .to('.imgscd', { opacity: 1 }, '-=.4')
 
-        ScrollTrigger.create({
-            trigger: '.containerscd',
-            animation: tlImgscd,
-            start: "top 60%",
-            end: "top center",
-        })
+        // ScrollTrigger.create({
+        //     trigger: '.containerscd',
+        //     animation: tlImgscd,
+        //     start: "top 60%",
+        //     end: "top center",
+        // })
 
         //animasi di first section
         //animasi kata2
         let tl = gsap.timeline()
         tl
-            .from('.hi', { opacity: 0, duration: 1, y: 100 })
+            .from('.hi', { opacity: 0, duration: 1, y: 100 }, '+=.3s')
             .from('.letter', { y: 100, opacity: 0, stagger: .04, duration: 1 }, '-=.8s')
             .from('.welcome', { opacity: 0, duration: 1, y: 100 }, '-=.8s')
 
         //animasi gambar
-        let tlImg = gsap.timeline()
-        tlImg
-            .to('.imagefirst', { opacity: 0 })
-            .to('.layerimgfirst', { left: 0 })
-            .to('.layerimgfirst', { width: '100%', duration: .5 })
-            .to('.layerimgfirst', { width: 0, left: '100%' })
-            .to('.imagefirst', { opacity: 1 })
-            .to('.layerimgfirst', { border: '1px black solid' })
+        // let tlImg = gsap.timeline()
+        // tlImg
+        //     .to('.imagefirst', { opacity: 0 })
+        //     .to('.layerimgfirst', { left: 0 })
+        //     .to('.layerimgfirst', { width: '100%', duration: .5 })
+        //     .to('.layerimgfirst', { width: 0, left: '100%' })
+        //     .to('.imagefirst', { opacity: 1 })
+        //     .to('.layerimgfirst', { border: '1px black solid' })
     }, []);
 
     const showModal = (e, item) => {
@@ -127,71 +138,115 @@ const Body = () => {
         setDisplayModal(true)
     }
 
-    return (
-        <Flex w="100%" h="fit-content" align="center" justify='space-evenly' direction="column">
-            <Flex w="100%" h="100vh" justify={'space-evenly'} align={'center'} direction={['column', 'column', 'row', 'row']} >
-                <Flex w={['100%', '100%', '40%', '40%']} h={'100%'} justify={'center'} align={'center'} position='relative' >
-                    <Box bg={'white'} boxShadow='1px 2px 30px -25px black' w='0px' h={'350px'} position='absolute' className='layerimgfirst'></Box>
-                    <Image src={guyPic} boxSize="400px" objectFit="cover" borderRadius="full" className='imagefirst' onClick={() => setSelected(!selected)} />
+    const ProjectCard = ({ item }) => {
+        return (
+            <Flex w={['100%', '100%', '48%']} minH={'100px'} borderRadius={'10px'} _hover={{ boxShadow: `0px 0px 15px 0px ${shadowColor}` }} transition='.3s' border={`1px ${borderColor} solid`} my={'10px'} p='10px' direction={'column'} fontFamily={'Merriweather'}>
+                <Flex direction={'row'} align='flex-start' justify={'space-between'}>
+                    <a target={'_blank'} href={item.url}>
+                        <Flex fontSize={'20px'} mb='5px'>{item.title}</Flex>
+                    </a>
+                    <a target={'_blank'} href={item.github}>
+                        <BsGithub />
+                    </a>
                 </Flex>
-                <Flex w={["85%", "85%", "30%", "30%"]} h="70%" justify="center" direction="column" userSelect={'none'} fontSize="60px" fontWeight="900" letterSpacing="1px" className='maintitle'  >
-                    <Flex overflow={'hidden'}>
-                        <Box className='hi'>Hi, I'm</Box>
+                <Flex fontSize={'14px'}>{item.spec}</Flex>
+            </Flex>
+        )
+    }
+
+    const Navbar = () => {
+        return (
+            <Flex h={'10vh'} w={['95%', '85%', bodyWidth]} align={'center'} justify='flex-end'>
+                <Flex w={'100%'} h={'100%'} align={'center'} justify='flex-end' display={['none', 'none', 'flex']}>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'home' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('home')}>
+                        Home
                     </Flex>
-                    {
-                        wordFirst.map(i => (
-                            i == ' ' ?
-                                <Flex overflow={'hidden'}>
-                                    <span className='letter'>&nbsp;</span>
-                                </Flex> :
-                                <Flex overflow={'hidden'}>
-                                    <span className='letter'>{i}</span>
-                                </Flex>
-                        ))
-                    }
-                    <Flex overflow={'hidden'}>
-                        <Box className='welcome'>Welcome.</Box>
-                    </Flex>                    {/* <Flex fontSize="24px" fontWeight={500} fontFamily={'Merriweather'} className='maindesc'>
-                        A Final year Information Technology student that really passionate
-                        about
-                        front end development, and simple UI that bring
-                        best experience.
-                    </Flex> */}
-                    {/* </animated.div> */}
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'experience' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('experience')}>
+                        Experience
+                    </Flex>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'projects' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('projects')}>
+                        Project
+                    </Flex>
+                    <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode == 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'articles' ? colorMode == 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('articles')}>
+                        Blog
+                    </Flex>
+                </Flex>
+                {
+                    colorMode == 'dark' ?
+                        <Icon as={BsFillMoonFill} onClick={toggleColorMode} ml='10px' cursor={'pointer'} transition='1s' />
+                        :
+                        <Icon as={BsSunFill} onClick={toggleColorMode} ml='10px' cursor={'pointer'} />
+                }
+                <Flex w={'fit-content'} ml='10px' h={'100%'} align={'center'} justify='flex-end' display={['flex', 'flex', 'none']} >
+                    <GiHamburgerMenu size={'24px'} onClick={() => setSideMenu(!sideMenu)} />
                 </Flex>
             </Flex>
-            <Flex w="100%" h={["60vh", "60vh", "90vh", "90vh"]} justify={'center'} align={'center'}>
-                <Flex w={["85%", "85%", "40%", "40%"]} h="50%" align="left" justify="space-evenly" direction="column" textAlign="left" className='containerscd'>
-                    <Flex fontSize={["28px", "32px", "32px", "32px"]} overflow={'hidden'} fontWeight="600" letterSpacing="1px">
-                        {
-                            ('Experience').split('').map(i => (
-                                <span className='expTitle'>{i}</span>
-                                // <Letter letter={i} className='expTitle' />
-                            ))
-                        }
+        )
+    }
+
+    const Home = (second) => {
+        return (
+            <Flex w={['95%', '85%', bodyWidth]} h={["fit-content", "fit-content", "fit-content"]} minH='78vh' justify={'space-evenly'} align={'flex-start'} direction={['column', 'row', 'row']} >
+                <Flex w={["100%", "100%", "100%"]} h={["60%", "60%", "50%"]} justify="space-evenly" align={'flex-start'} wrap={'wrap'} direction="row" fontWeight="900" letterSpacing="1px" className='maintitle'  >
+                    <Flex w='100%' h='70%' direction={'column'} justify={'flex-start'} mt={'20px'}>
+                        <Flex>
+                            <Box className='hi' letterSpacing={1.5} w='100%' display={'flex'} justifyContent={['flex-start', 'flex-start', 'flex-start']} fontSize={["24px", "24px", "40px"]}>Hi! I'm Tulus Anugrah Ibrahim 👋</Box>
+                        </Flex>
+                        <Flex fontWeight={'normal'} fontFamily='Merriweather'>
+                            I'm a Frontend Developer based on Indonesia. Currently learning React and Redux.
+                        </Flex>
+                        <Flex mt={'30px'} letterSpacing={1.5} w='100%' display={'flex'} justifyContent={['flex-start', 'flex-start', 'flex-start']} fontSize={["24px", "24px", "28px"]}>
+                            Latest blog
+                        </Flex>
+                        <Flex direction={'column'} h='fit-content' w={["100%", "100%", "100%"]}>
+                            {
+                                mediumPost.map((i, id) => (
+                                    id < 3 &&
+                                    <MediumCard item={i} />
+                                ))
+                            }
+                        </Flex>
                     </Flex>
-                    <Flex h={'40%'} justify={'space-evenly'} direction={'column'} fontFamily={'Merriweather'}>
-                        <Flex fontWeight={500} fontSize={["20px", "20px", "24px", "24px"]}>
+                </Flex>
+            </Flex>
+        )
+    }
+
+    const Experience = (second) => {
+        return (
+            <Flex w={['95%', '85%', bodyWidth]} h={["80vh", "78vh", "78vh"]} justify={'center'} align={'flex-start'}>
+                <Flex w={["90%", "90%", "100%"]} h="60%" align="left" justify="space-between" direction="column" textAlign="left" className='containerscd'>
+                    <Flex fontSize={["28px", "32px", "32px"]} h='fit-content' overflow={'hidden'} mb='10px' fontWeight="600" letterSpacing="1px">
+                        Experience
+                    </Flex>
+                    <Flex h={'70%'} justify={'space-evenly'} direction={'column'} fontFamily={'Merriweather'}>
+                        <Flex fontWeight={500} fontSize={["20px", "24px", "24px"]}>
                             Asmaraku (March - July 2021)
                         </Flex>
-                        <Flex fontWeight={500} fontSize={["20px", "20px", "24px", "24px"]}>
+                        <Flex fontWeight={500} fontSize={["20px", "24px", "24px"]}>
                             Software Developer Intern
                         </Flex>
-                        <Flex fontWeight={500} fontSize={["18px", "18px", "20px", "20px"]}>
-                            Key learning: React native, shopify, push notification
+                        <Flex fontWeight={500} fontSize={["16px", "20px", "20px"]} mt='10px' direction='column'>
+                            <Flex mb={'5px'}>• Developed an ecommerce mobile application from scratch up to deployment to google play store.
+                            </Flex>
+                            <Flex mb={'5px'}>
+                                • The project involves react native, expo, firebase cloud messaging (FCM) for push notification,
+                                consuming the graphql API and manage to upload the apps to google play store.
+                            </Flex>
                         </Flex>
                     </Flex>
                 </Flex>
-                <Flex w={'40%'} h={'60%'} display={['none', 'none', 'flex', 'flex']} justify={'flex-end'} align={'center'} >
-                    <Box bg={'white'} w='0px' h={'350px'} position='absolute' className='layerimgscd'></Box>
-                    <Image src={guyWork} boxSize="350px" objectFit="cover" borderRadius="full" className='imgscd' />
-                </Flex>
             </Flex>
-            <Flex w="90%" h={["80vh", "80vh", "120vh", "120vh"]} justify={'space-evenly'} align={'center'} direction='column' overflow={'hidden'} className='projectboxwrapper'>
-                <Flex fontSize={["28px", "32px", "32px", "32px"]} fontWeight="600" letterSpacing="1px" overflow={'hidden'}>
+        )
+    }
+
+    const Project = (second) => {
+        return (
+            <Flex w={['95%', '85%', bodyWidth]} h={"fit-content"} minH='78vh' justify={'flex-start'} align={'center'} direction='column' overflow={'hidden'} className='projectboxwrapper'>
+                <Flex fontSize={["28px", "32px", "32px", "32px"]} fontWeight="600" h={'10%'} w='100%' justify={'flex-start'} letterSpacing="1px" overflow={'hidden'}>
                     {
-                        ' Selected Works'.split('').map(i => (
-                            i == ' ' ?
+                        'Selected Works'.split('').map(i => (
+                            i === ' ' ?
                                 <span className='projectsTitle'>&nbsp;</span>
                                 :
                                 <span className='projectsTitle'>{i}</span>
@@ -199,101 +254,126 @@ const Body = () => {
                         ))
                     }
                 </Flex>
-                <Flex border='none' direction={'column'} >
-                    {
-                        list.map(item => (
-                            <Flex className={`projectText ${item.title}`} paddingY={'25px'} fontSize={[24, 24, 28, 28]} zIndex={2} whiteSpace={'nowrap'} w={'100%'} cursor='pointer' onMouseMove={(e) => showModal(e, item)} onMouseLeave={() => setDisplayModal(false)} onClick={() => window.location.href = item.url}>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                                <Box mx={item.title == 'Quiz App' ? 10 : 5}>{item.title}</Box>
-                            </Flex>
-                        ))
-                    }
+                <Flex w='100%' justify={'center'}>
+                    <Flex allowToggle w='100%' h='fit-content' display={'flex'} alignItems='center' justifyContent={'space-evenly'} flexDirection={'row'} flexWrap='wrap'>
+                        {
+                            list.map(item => (
+                                <ProjectCard item={item} />
+                            ))
+                        }
+                    </Flex>
                 </Flex>
+                {/* <Flex border='none' direction={'column'} >
+                        {
+                            list.map(item => (
+                                <Flex className={`projectText ${item.title}`} paddingY={'25px'} fontSize={[24, 24, 28, 28]} zIndex={2} whiteSpace={'nowrap'} w={'100%'} cursor='pointer' onMouseMove={(e) => showModal(e, item)} onMouseLeave={() => setDisplayModal(false)} onClick={() => window.location.href = item.url}>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                    <Box mx={item.title === 'Quiz App' ? 10 : 5}>{item.title}</Box>
+                                </Flex>
+                            ))
+                        }
+                    </Flex> */}
             </Flex>
-            <Flex w="90%" h={["90vh", "90vh", "60vh", "60vh"]} justify={'space-between'} align={'center'} direction='column' >
+        )
+    }
+
+    const Blog = (second) => {
+        return (
+            <Flex w={['95%', '85%', bodyWidth]} h={["fit-content", "fit-content", "fit-content"]} justify={'space-between'} align={'center'} direction='column' >
                 <Flex h={'10%'} w='100%' justify={'flex-start'} align={'center'} fontSize={["28px", "32px", "32px", "32px"]} fontWeight={600} letterSpacing='1px' overflow={'hidden'} >
-                    {
-                        'Recent Articles'.split('').map(i => (
-                            <Letter letter={i} classname='articleTitle' />
-                        ))
-                    }
+                    Recent Articles
                 </Flex>
-                <Flex wrap={'wrap'} h={'100%'} w='100%' justify={'space-between'} align='center'>
+                <Flex wrap={'wrap'} h={'90%'} w='100%' justify={['center', 'center', 'space-between']} align='center'>
                     {
                         mediumPost.map((item, idx) => (
-                            idx <= 3 &&
-                            // <Flex className='articlebox'>
+                            // idx <= 3 &&
                             <MediumCard item={item} key={idx} />
-                            // </Flex>
                         ))
                     }
                 </Flex>
             </Flex>
-            <Flex w="90%" h="100vh" justify={'space-between'} align={'center'} >
-                <Flex w={["100%", "100%", "60%", "60%"]} h="60%" align="left" justify="space-between" direction="column" textAlign="left">
-                    <Flex fontSize={["28px", "28px", "32px", "32px"]} fontWeight="600" letterSpacing="1px" h={'10%'} wordBreak='break-word' w={'100%'}>
-                        {
-                            ' Skillset & Frequent Tools'.split('').map(i => (
-                                <Letter letter={i} classname='skilltitle' />
-                            ))
-                        }
-                    </Flex>
-                    <Flex wrap={'wrap'} justify={'space-between'} align={'center'} w={'100%'} h={'90%'} className='skillwrapper'>
-                        {
-                            skillsList.map(item => (
-                                <SkillBox title={item.title} img={item.img} />
-                            ))
-                        }
-                    </Flex>
-                </Flex>
-                <Flex w={'40%'} h={'60%'} justify={'center'} align={'center'} overflow='hidden' display={['none', 'none', 'flex', 'flex']}>
-                    <Image src={girlRush} boxSize="350px" objectFit="cover" borderRadius="full" className='skillimage' />
-                </Flex>
-            </Flex>
-            {/* footer */}
-            <Flex w="50%" h="12vh" justify={'space-between'} align={'center'} direction='column' >
-                <Flex w="100%" h="100%" justify={'space-between'} >
-                    <a href='https://instagram.com/tulusibrahim/' target={'_blank'}>
+        )
+    }
+
+    const Footer = (second) => {
+        return (
+            <Flex w={["80%", "80%", bodyWidth]} h="12vh" justify={'space-between'} align={'center'} direction='column'>
+                <Flex w='100%' h='100%' justify={'center'}>
+                    {/* <Flex w='50%' h='100%' wrap={'wrap'} justify={'space-between'} align='center'>
+                        <Icon fontSize={24} as={AiFillHtml5} w={['30%', '30%', 'auto']} transition='.2s' _hover={{ color: '#F4470B' }} />
+                        <Icon fontSize={24} as={DiCss3Full} w={['30%', '30%', 'auto']} transition='.2s' _hover={{ color: '#2862E9' }} />
+                        <Icon fontSize={24} as={SiJavascript} w={['30%', '30%', 'auto']} transition='.2s' _hover={{ color: '#DAB92D' }} />
+                        <Icon fontSize={24} as={DiGit} w={['30%', '30%', 'auto']} transition='.2s' _hover={{ color: '#E84D31' }} />
+                        <Icon fontSize={24} as={FaReact} w={['30%', '30%', 'auto']} transition='.2s' _hover={{ color: '#00D1F7' }} />
+                        <Icon fontSize={24} as={SiVisualstudiocode} w={['30%', '30%', 'auto']} transition='.2s' _hover={{ color: '#2E7DB5' }} />
+                    </Flex> */}
+                    <Flex w="60%" h="100%" justify={'space-evenly'} align={'center'}>
+                        {/* <a href='https://github.com/tulusibrahim/' target={'_blank'}> */}
+                        <SiGmail size={24} onClick={copyEmail} cursor='pointer' />
+                        {/* </a> */}
+                        <a href='https://linkedin.com/in/tulusibrahim/' target={'_blank'}>
+                            <IoLogoLinkedin size={24} />
+                        </a>
+                        <a href='https://github.com/tulusibrahim/' target={'_blank'}>
+                            <BsGithub size={24} />
+                        </a>
+                        <a href='https://medium.com/@tulusibrahim/' target={'_blank'}>
+                            <FaMedium size={24} />
+                        </a>
+                        {/* <a href='https://instagram.com/tulusibrahim/' target={'_blank'}>
                         <FiInstagram size={32} />
-                    </a>
-                    <a href='https://linkedin.com/in/tulusibrahim/' target={'_blank'}>
-                        <IoLogoLinkedin size={32} />
-                    </a>
-                    <a href='https://medium.com/@tulusibrahim/' target={'_blank'}>
-                        <FaMedium size={32} />
-                    </a>
-                    <a href='https://github.com/tulusibrahim/' target={'_blank'}>
-                        <BsGithub size={32} />
-                    </a>
+                    </a> */}
+                    </Flex>
                 </Flex>
                 <Flex pb={'10px'} fontWeight='bold' fontFamily={'Merriweather'} letterSpacing={1}>
-                    Tulus @2022
+                    Tulus @{new Date().getFullYear()}
                 </Flex>
             </Flex>
+        )
+    }
 
-            {/* modal project */}
-            <Flex position={'absolute'} className='modal' height={'fit-content'} width='fit-content' justify='center' align={'center'} mt={3} >
-                <Flex height={'100%'} width='100%' bg={'#272932'} color="whitesmoke" borderRadius='lg' zIndex={1} transition={'.5s'} justify='center' opacity={displayModal ? 1 : 0} padding='10px'>
-                    <Flex w={'90%'} justify='center' align={'center'}>
-                        <Flex w={'100%'} h={'70%'} justify='space-evenly' direction='column' >
-                            <Flex fontSize={20} borderBottom={'4px white solid'} w='fit-content' fontWeight={'thin'} whiteSpace={'nowrap'}>
-                                {modalData.title}
-                            </Flex>
-                            <Flex paddingY={'4px'} fontSize={16} fontFamily={'Merriweather'}>
-                                • {modalData.desc}
-                            </Flex>
-                            <Flex fontSize={16} fontFamily={'Merriweather'}>
-                                {modalData.spec}
-                            </Flex>
-                        </Flex>
+    return (
+        //scren size hp: 360x800
+        <Flex w="100%" h="fit-content" align="center" justify='space-evenly' direction="column" position={'relative'} overflow={'hidden'}>
+            <Navbar />
+            {
+                navbarSelect === 'home' &&
+                <Home />
+            }
+
+            {
+                navbarSelect === 'experience' &&
+                <Experience />
+            }
+
+            {
+                navbarSelect === 'projects' &&
+                <Project />
+            }
+
+            {
+                navbarSelect === 'articles' &&
+                <Blog />
+            }
+            <Footer />
+
+            {/* sidenav tab */}
+            <Flex w={'100%'} h='100vh' position={'fixed'} left={sideMenu ? '0px' : '100%'} top={0} transition={'.8s'} overflow='hidden' >
+                <Flex w={'40%'} h='100%' onClick={() => setSideMenu(false)}></Flex>
+                <Flex w={'60%'} bg={bgColor} h='100%' align='center' justify={'center'} borderLeft='1px black solid'>
+                    <Flex w={'100%'} h='50%' direction={'column'} align='center' justify={'space-evenly'}>
+                        <Flex w={'60%'} fontWeight='bold' onClick={() => { setNavbarSelect('home'); setSideMenu(false) }}>Home</Flex>
+                        <Flex w={'60%'} fontWeight='bold' onClick={() => { setNavbarSelect('experience'); setSideMenu(false) }}>Experience</Flex>
+                        <Flex w={'60%'} fontWeight='bold' onClick={() => { setNavbarSelect('projects'); setSideMenu(false) }}>Projects</Flex>
+                        <Flex w={'60%'} fontWeight='bold' onClick={() => { setNavbarSelect('articles'); setSideMenu(false) }}>Articles</Flex>
                     </Flex>
                 </Flex>
             </Flex>
