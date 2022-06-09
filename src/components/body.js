@@ -3,8 +3,7 @@ import { list, MediumCard } from './helper';
 import { useEffect, useState } from 'react';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { IoLogoLinkedin } from 'react-icons/io'
-import { FaMedium, BsGithub, GiHamburgerMenu, SiGmail, BsFillMoonFill, BsSunFill } from 'react-icons/all'
+import { FaMedium, BsGithub, IoLogoLinkedin, GiHamburgerMenu, SiGmail, BsFillMoonFill, BsSunFill } from 'react-icons/all'
 import { CentralTheme } from '../theme';
 
 const Body = () => {
@@ -43,9 +42,14 @@ const Body = () => {
         return (
             <Flex w={['100%', '100%', '48%']} minH={'100px'} borderRadius={'10px'} _hover={{ boxShadow: `0px 0px 15px 0px ${shadowColor}` }} transition='.3s' border={`1px ${borderColor} solid`} my={'10px'} p='10px' direction={'column'} fontFamily={'Merriweather'}>
                 <Flex direction={'row'} align='flex-start' justify={'space-between'}>
-                    <a target={'_blank'} href={item.url} rel='noreferrer'>
-                        <Flex fontSize={'20px'} mb='5px'>{item.title}</Flex>
-                    </a>
+                    {
+                        item.url ?
+                            <a target={'_blank'} href={item.url} rel='noreferrer'>
+                                <Flex fontSize={'20px'} mb='5px'>{item.title}</Flex>
+                            </a>
+                            :
+                            <Flex fontSize={'20px'} mb='5px'>{item.title}</Flex>
+                    }
                     <a target={'_blank'} href={item.github} rel='noreferrer'>
                         <BsGithub />
                     </a>
@@ -57,7 +61,7 @@ const Body = () => {
 
     const Navbar = () => {
         return (
-            <Flex h={'10vh'} w={['95%', '85%', bodyWidth]} align={'center'} justify='flex-end'>
+            <Flex h={'10vh'} w={['95%', '85%', bodyWidth]} data-testid='navbar' align={'center'} justify='flex-end'>
                 <Flex w={'100%'} h={'100%'} align={'center'} justify='flex-end' display={['none', 'none', 'flex']}>
                     <Flex w={'fit-content'} px='8px' py='3px' fontWeight={'bold'} letterSpacing='1px' borderRadius={'5px'} transition='.4s' cursor={'pointer'} mx='5px' _hover={{ bg: colorMode === 'dark' ? '#1D3557' : '#A8DADC' }} bg={navbarSelect === 'home' ? colorMode === 'dark' ? '#1D3557' : '#A8DADC' : 'none'} onClick={() => setNavbarSelect('home')}>
                         Home

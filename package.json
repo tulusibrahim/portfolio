@@ -1,5 +1,12 @@
 {
   "name": "portfolio-react",
+  "jest": {
+    "transformIgnorePatterns": [
+      [
+        "/node_modules/(?!react-icons)"
+      ]
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "dependencies": {

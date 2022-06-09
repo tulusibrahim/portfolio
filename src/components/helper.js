@@ -16,36 +16,36 @@ export const list = [
         github: 'https://github.com/tulusibrahim/react-blog'
     },
     {
-        title: 'Social media dashboard',
-        desc: 'Slicing Design',
-        spec: 'Created with React, Chakra UI.',
+        title: 'SimpleDB',
+        desc: 'Programming',
+        spec: 'Created with NextJS, Chakra UI.',
         img: landingPagePic,
-        url: 'https://fementor-social-media.vercel.app/',
-        github: 'https://github.com/tulusibrahim/frontendmentor-social-media-dashboard-with-theme-switcher'
+        url: 'https://simpledb.vercel.app/',
+        github: 'https://github.com/tulusibrahim/simpleDB'
     },
     {
-        title: 'Job Listings with Filtering',
-        desc: 'Slicing Design + Programming',
+        title: 'Typefast',
+        desc: 'Programming',
         spec: 'Created with React, Chakra UI.',
         img: landingPagePic,
-        url: 'https://fementor-job-listings.vercel.app/',
-        github: 'https://github.com/tulusibrahim/frontendmentor-job-listings-with-filtering'
+        url: 'https://www.typefast.site/',
+        github: 'https://github.com/tulusibrahim/typefast'
     },
     {
-        title: 'Company Landing Page',
-        desc: 'Slicing Design',
-        spec: 'Created with React, Chakra UI.',
+        title: 'Recipe App',
+        desc: 'Programming',
+        spec: 'Created with react native & redux.',
         img: landingPagePic,
-        url: 'https://fementor-intro-section.vercel.app/',
-        github: 'https://github.com/tulusibrahim/frontendmentor-Intro-section-with-dropdown-navigation'
+        url: '',
+        github: 'https://github.com/tulusibrahim/recipe-app-RN'
     },
     {
-        title: 'Room landing page',
-        desc: 'Slicing Design',
-        spec: 'Created with HTML, SASS, Javascript.',
-        img: landingPagePic,
-        url: 'https://room-phi.vercel.app/',
-        github: 'https://github.com/tulusibrahim/roomHomePage'
+        title: 'Unofficial Mobile Legends API',
+        desc: 'Programming',
+        spec: 'Created with NextJS.',
+        img: typePic,
+        url: 'https://unofficial-mobile-legends-api.vercel.app/api',
+        github: 'https://github.com/tulusibrahim/typingSpeed'
     },
     {
         title: 'Country REST API',
@@ -56,12 +56,12 @@ export const list = [
         github: 'https://github.com/tulusibrahim/rest-countries-API'
     },
     {
-        title: 'Typing Speed Test',
-        desc: 'Programming',
-        spec: 'Created with HTML, CSS, Javascript, 3rd party API.',
-        img: typePic,
-        url: 'https://tulusibrahim.github.io/typingSpeed/',
-        github: 'https://github.com/tulusibrahim/typingSpeed'
+        title: 'Room landing page',
+        desc: 'Slicing Design',
+        spec: 'Created with HTML, SASS, Javascript.',
+        img: landingPagePic,
+        url: 'https://room-phi.vercel.app/',
+        github: 'https://github.com/tulusibrahim/roomHomePage'
     },
     {
         title: 'Quiz App',
