@@ -1,4 +1,4 @@
-import { useColorMode, Flex, Box, useToast, Icon } from '@chakra-ui/react';
+import { useColorMode, Flex, Box, useToast, Icon, Tooltip } from '@chakra-ui/react';
 import { list, MediumCard } from './helper';
 import { useEffect, useState } from 'react';
 import { gsap } from "gsap";
@@ -98,7 +98,7 @@ const Body = () => {
                             <Box letterSpacing={1.5} w='100%' display={'flex'} justifyContent={['flex-start', 'flex-start', 'flex-start']} fontSize={["24px", "24px", "40px"]}>Hi! I'm Tulus Anugrah Ibrahim 👋</Box>
                         </Flex>
                         <Flex fontWeight={'normal'} fontFamily='Merriweather'>
-                            I'm a Frontend Developer based on Indonesia. Currently learning React and Redux.
+                            I'm a Frontend Developer based on Indonesia. Currently learning React and NextJS.
                         </Flex>
                         <Flex mt={'30px'} letterSpacing={1.5} w='100%' display={'flex'} justifyContent={['flex-start', 'flex-start', 'flex-start']} fontSize={["24px", "24px", "28px"]}>
                             Latest blog
@@ -120,18 +120,28 @@ const Body = () => {
     const Experience = (second) => {
         return (
             <Flex w={['95%', '85%', bodyWidth]} h={["80vh", "78vh", "78vh"]} justify={'center'} align={'flex-start'}>
-                <Flex w={["90%", "90%", "100%"]} h="60%" align="left" justify="space-between" direction="column" textAlign="left" className='containerscd'>
-                    <Flex fontSize={["28px", "32px", "32px"]} h='fit-content' overflow={'hidden'} mb='10px' fontWeight="600" letterSpacing="1px">
+                <Flex w={["90%", "90%", "100%"]} h="60%" align="left" justify="flex-start" direction="column" textAlign="left" className='containerscd'>
+                    <Flex fontSize={["28px", "32px", "32px"]} h='fit-content' overflow={'hidden'} fontWeight="600" letterSpacing="1px">
                         Experience
                     </Flex>
                     <Flex h={'70%'} justify={'space-evenly'} direction={'column'} fontFamily={'Merriweather'}>
-                        <Flex fontWeight={500} fontSize={["20px", "24px", "24px"]}>
-                            Asmaraku (March - July 2021)
+                        <Flex flexDir='column'>
+                            <Flex fontWeight={500} fontSize={["20px", "24px", "24px"]}>
+                                PT. Cakra Radha Mustika (July 2022 - Present)
+                            </Flex>
+                            <Flex fontWeight={500} fontSize={["16px", "20px", "20px"]}>
+                                Frontend Engineer
+                            </Flex>
                         </Flex>
-                        <Flex fontWeight={500} fontSize={["20px", "24px", "24px"]}>
-                            Software Developer Intern
+                        <Flex flexDir='column'>
+                            <Flex fontWeight={500} fontSize={["20px", "24px", "24px"]}>
+                                Asmaraku (March - July 2021)
+                            </Flex>
+                            <Flex fontWeight={500} fontSize={["16px", "20px", "20px"]}>
+                                Software Developer Intern
+                            </Flex>
                         </Flex>
-                        <Flex fontWeight={500} fontSize={["16px", "20px", "20px"]} mt='10px' direction='column'>
+                        {/* <Flex fontWeight={500} fontSize={["16px", "20px", "20px"]} mt='10px' direction='column'>
                             <Flex mb={'5px'}>• Developed an ecommerce mobile application from scratch up to deployment to google play store.
                             </Flex>
                             <Flex mb={'5px'}>
@@ -143,7 +153,7 @@ const Body = () => {
                                     Link Google Play
                                 </a>
                             </Flex>
-                        </Flex>
+                        </Flex> */}
                     </Flex>
                 </Flex>
             </Flex>
@@ -227,7 +237,11 @@ const Body = () => {
                     </Flex> */}
                     <Flex w="60%" h="100%" justify={'space-evenly'} align={'center'}>
                         {/* <a href='https://github.com/tulusibrahim/' target={'_blank'}> */}
-                        <SiGmail size={24} onClick={copyEmail} cursor='pointer' />
+                        <Tooltip label="Click to copy my email ;)" aria-label='A tooltip' placement='top'>
+                            <span>
+                                <SiGmail size={24} onClick={copyEmail} cursor='pointer' />
+                            </span>
+                        </Tooltip>
                         {/* </a> */}
                         <a href='https://linkedin.com/in/tulusibrahim/' target={'_blank'} rel='noreferrer'>
                             <IoLogoLinkedin size={24} />
