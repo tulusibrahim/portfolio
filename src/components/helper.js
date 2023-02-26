@@ -81,6 +81,21 @@ export const list = [
   // }
 ];
 
+const monthlist = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "June",
+  "July",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
 export const MediumCard = ({ item }) => {
   const { bgColor, textColor, borderColor, shadowColor } = CentralTheme();
   const [breakpoint] = useMediaQuery("min-width: 1350px");
@@ -118,7 +133,7 @@ export const MediumCard = ({ item }) => {
           </Flex>
         </a>
         <Flex fontSize={"12px"} my="5px">
-          {time.getDate()}-{time.getMonth() + 1}-{time.getFullYear()}
+          {time.getDate()} {monthlist[time.getMonth()]}, {time.getFullYear()}
         </Flex>
         <Flex justify={"flex-start"}>
           {item.categories.map(
